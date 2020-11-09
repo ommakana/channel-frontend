@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header__profilePhoto {
+    object-fit: contain;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+button.header__button {
+    color: #000;
+    &.active {
+        background: rgba(0, 0, 0, 0.54);
+    }
+}

@@ -1,0 +1,30 @@
+.youtube {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    text-align: center;
+}
+
+.youtube__tile {
+    width: 33%;
+    margin: 10px;
+    cursor: pointer;
+    img {
+        object-fit: contain;
+        width: 100%;
+    }
+}
+
+h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-block;
+}
+
+a {
+    color: #000000;
+}
+
+svg.youtube__icon {
+    fill: red;
+    vertical-align: top;
+}
