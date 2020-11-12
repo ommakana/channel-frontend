@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "../../api/index";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import "./youtube.scss";
+import Loader from "../loader/loader";
 
 function YoutubeComponent() {
   const [data, setData] = useState(null);
@@ -16,7 +17,7 @@ function YoutubeComponent() {
 
   return (
     <div className="youtube">
-      {data &&
+      {data ?
         data.map((item, index) => {
           return (
             <div key={index} className="youtube__tile">
@@ -27,7 +28,7 @@ function YoutubeComponent() {
               </a>
             </div>
           );
-        })}
+        }) : <Loader />}
     </div>
   );
 }

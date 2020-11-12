@@ -1,0 +1,20 @@
+.addYoutubeLinkForm {
+    text-align: center;
+    margin: auto;
+    button, input {
+        display: block;
+        margin: 2% auto;
+        width: fit-content;
+    }
+    &__message {
+        font-family: sans-serif;
+        text-transform: capitalize;
+        padding: 20px;
+        &.success {
+            color: #333333;
+        }
+        &.error {
+            color: red;
+        }
+    }
+}

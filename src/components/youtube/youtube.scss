@@ -8,10 +8,13 @@
 .youtube__tile {
     width: 33%;
     margin: 10px;
-    cursor: pointer;
+    transition: all 0.2s ease-in;
     img {
         object-fit: contain;
         width: 100%;
+    }
+    &:hover {
+        transform: scale(1.1);
     }
 }
 
