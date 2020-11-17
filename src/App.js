@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "./components/header/header";
 import {
   BrowserRouter as Router,
@@ -11,7 +11,7 @@ import LoginComponent from "./components/login/login";
 import AddYoutubeLink from "./components/addYoutubeLink/addYoutubeLink";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import Home from "./components/home/home";
-import CopyrightIcon from "@material-ui/icons/Copyright";
+// import CopyrightIcon from "@material-ui/icons/Copyright";
 import "./App.scss";
 
 function App() {
@@ -19,10 +19,6 @@ function App() {
   function onAuthRequired() {
     history.push("/login");
   }
-
-  useEffect(() => {
-    console.log("hello");
-  }, []);
 
   return (
     <div className="app">
@@ -58,11 +54,11 @@ function App() {
           </Security>
         </Switch>
       </Router>
-      <div className="app__footer">
+      {/* <div className="app__footer">
         <h5>
           Om Makana <CopyrightIcon className="app__icon" />
         </h5>
-      </div>
+      </div> */}
     </div>
   );
 }
