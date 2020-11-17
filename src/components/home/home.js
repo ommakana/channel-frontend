@@ -5,6 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
+import QuoteComponent from "../quotes/quote";
 import axios from "axios";
 import './home.scss';
 
@@ -34,7 +35,8 @@ export default function Home() {
   }, []);
 
   return (
-    <Container>
+    <Container maxWidth="sm">
+      <QuoteComponent />
       {data &&
         data.map((item, index) => {
           return (

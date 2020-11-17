@@ -1,0 +1,22 @@
+.app__footer {
+    letter-spacing: 1px;
+    text-align: center;
+    animation: appear 0.5s 2s forwards;
+    h5 {
+        position: relative;
+    }
+}
+
+svg.app__icon {
+    vertical-align: middle;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
