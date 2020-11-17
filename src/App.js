@@ -1,14 +1,19 @@
 import React from "react";
 import Header from "./components/header/header";
-import { BrowserRouter as Router, Switch, Route , useHistory} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import "./App.css";
 import YoutubeComponent from "./components/youtube/youtube";
 import LoginComponent from "./components/login/login";
 import AddYoutubeLink from "./components/addYoutubeLink/addYoutubeLink";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
+import Home from "./components/home/home";
 
 function App() {
-
   const history = useHistory();
 
   function onAuthRequired() {
@@ -17,13 +22,12 @@ function App() {
   return (
     <div className="app">
       <Router>
-        {/* {false && <Header />} */}
         <Header />
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/" exact={true}>
-            <div>home</div>
+            <Home />
           </Route>
           <Route path="/youtube" exact={true}>
             <YoutubeComponent />

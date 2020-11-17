@@ -6,7 +6,6 @@ import { withOktaAuth } from '@okta/okta-react';
 export default withOktaAuth(
   class Login extends Component {
     constructor(props) {
-      console.log(props);
       super(props);
       this.state = {
         authenticated: null
