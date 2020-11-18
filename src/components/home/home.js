@@ -42,17 +42,18 @@ export default function Home() {
           return (
             <Card key={index} className={classes.root} variant="outlined">
               <CardContent>
-                <Typography
+                <a
                   className={classes.title}
-                  color="textSecondary"
-                  gutterBottom
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <img
                     src={item.imageUrl}
                     alt="om makana profile"
                     className="header__profilePhoto"
                   />
-                </Typography>
+                </a>
                 <Typography variant="h5" component="h2">
                   {item.title}
                 </Typography>
