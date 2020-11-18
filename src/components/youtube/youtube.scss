@@ -31,3 +31,9 @@ svg.youtube__icon {
     fill: red;
     vertical-align: top;
 }
+
+@media (max-width: 576px) {
+    .youtube__tile {
+        width: 100%;
+    }
+}
