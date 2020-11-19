@@ -4,14 +4,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory,
+  useHistory
 } from "react-router-dom";
 import YoutubeComponent from "./components/youtube/youtube";
 import LoginComponent from "./components/login/login";
 import AddYoutubeLink from "./components/addYoutubeLink/addYoutubeLink";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import Home from "./components/home/home";
-// import CopyrightIcon from "@material-ui/icons/Copyright";
 import "./App.scss";
 
 function App() {
@@ -54,11 +53,6 @@ function App() {
           </Security>
         </Switch>
       </Router>
-      {/* <div className="app__footer">
-        <h5>
-          Om Makana <CopyrightIcon className="app__icon" />
-        </h5>
-      </div> */}
     </div>
   );
 }

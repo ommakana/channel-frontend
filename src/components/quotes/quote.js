@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
+import { fetchAppData, QUOTES_API } from "../../api/index";
 
 const useStyles = makeStyles({
   root: {
@@ -26,21 +26,16 @@ export default function QuoteComponent() {
   let quotesArray = useRef(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("https://type.fit/api/quotes");
-      quotesArray.current = result.data.slice(100);
+    fetchAppData(QUOTES_API).then((data) => {
+      quotesArray.current = data.slice(100);
       setQuote(
         quotesArray.current[Math.floor(Math.random() * Math.floor(100))]
       );
-    };
-
-    fetchData();
+    });
   }, []);
 
   function generateQuote() {
-    setQuote(
-        quotesArray.current[Math.floor(Math.random() * Math.floor(100))]
-      );
+    setQuote(quotesArray.current[Math.floor(Math.random() * Math.floor(100))]);
   }
 
   return (
@@ -54,14 +49,15 @@ export default function QuoteComponent() {
           Quote of the Day
         </Typography>
 
-        {quote && (<>
-          <Typography variant="body2" component="p">
-            <br />
-            {`${quote.text}`}
-          </Typography>
-          <Typography variant="body2" component="p">
-               - {quote.author}
-          </Typography>
+        {quote && (
+          <>
+            <Typography variant="body2" component="p">
+              <br />
+              {`${quote.text}`}
+            </Typography>
+            <Typography variant="body2" component="p">
+              - {quote.author}
+            </Typography>
           </>
         )}
       </CardContent>

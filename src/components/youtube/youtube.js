@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../api/index";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import { fetchAppData, YOUTUBE_API } from "../../api/index";
+
 import "./youtube.scss";
 import Loader from "../loader/loader";
 
@@ -8,11 +9,7 @@ function YoutubeComponent() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    async function fetchData() {
-      const req = await axios.get("/youtube");
-      setData(req.data);
-    }
-    fetchData();
+    fetchAppData(YOUTUBE_API).then((data) => setData(data))
   }, []);
 
   return (

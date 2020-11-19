@@ -6,16 +6,16 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
 import QuoteComponent from "../quotes/quote";
-import axios from "axios";
-import './home.scss';
+import { fetchAppData, APP_DATA_API } from "../../api/index";
+import "./home.scss";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    marginBottom: 20
+    marginBottom: 20,
   },
   title: {
-    fontSize: 14
+    fontSize: 14,
   },
 });
 
@@ -24,14 +24,9 @@ export default function Home() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        "https://5f3b6023fff8550016ae52ec.mockapi.io/api/v1/myappdata"
-      );
-      setData(result.data);
-    };
-
-    fetchData();
+    fetchAppData(APP_DATA_API)
+      .then((data) => setData(data))
+      .catch(() => console.log("error app data"));
   }, []);
 
   return (
