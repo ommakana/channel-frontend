@@ -5,7 +5,6 @@ export const APP_DATA_API = "appDataApi";
 export const QUOTES_API = "quotesDataApi";
 export const YOUTUBE_API = "youtubeDataApi";
 
-
 const apiKeyValue = {
     appDataApi: "https://5f3b6023fff8550016ae52ec.mockapi.io/api/v1/myappdata",
     quotesDataApi: "https://type.fit/api/quotes",
@@ -21,7 +20,6 @@ export const fetchAppData = (key) => {
     .get(key)
     .then(async (data) => {
       if (!data) {
-        
         const result = await axios(`${apiKeyValue[key]}`);
         idbKeyVal.set(key, result.data);
         return result.data;

@@ -1,23 +1,21 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Header from "./components/header/header";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  useHistory
+  Route
 } from "react-router-dom";
+import Home from "./components/home/home";
 import YoutubeComponent from "./components/youtube/youtube";
 import LoginComponent from "./components/login/login";
-import AddYoutubeLink from "./components/addYoutubeLink/addYoutubeLink";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
-import Home from "./components/home/home";
 import "./App.scss";
 
 function App() {
-  const history = useHistory();
-  function onAuthRequired() {
-    history.push("/login");
-  }
+
+  const AddYoutubeLinkComp = React.lazy(() =>
+    import("./components/addYoutubeLink/addYoutubeLink")
+  );
 
   return (
     <div className="app">
@@ -36,11 +34,12 @@ function App() {
             issuer="https://dev-2806996.okta.com/oauth2/default"
             clientId="0oaoe889ciKp2qjIW5d5"
             redirectUri={window.location.origin + "/login/callback"}
-            onAuthRequired={onAuthRequired}
             pkce={true}
           >
             <SecureRoute path="/admin" exact={true}>
-              <AddYoutubeLink />
+              <Suspense fallback="loading..">
+                <AddYoutubeLinkComp />
+              </Suspense>
             </SecureRoute>
             <Route
               path="/login"
